@@ -76,21 +76,24 @@
             <p>Utilize a calculadora abaixo e faça voce mesmo o seu orçamento. Mas antes irei te explicar os valores e como funciona esse cálculo.</p>
             <p>Os valor da diária é de R$ 60,00, quando for somente <strong>UM Pet na residencia</strong>. Quando houver mais de UM, será acrescentado o valor de R$ 10,00 na diária por Pet. Exemplo: 1 Pet = R$ 60,00, 2 Pets = R$ 70,00, 3 Pets = R$ 80,00, e por aí vai.</p> 
             <p>O meu deslocamento até a sua residencia é de R$ 10,00 por vez que eu irei ir até lá, ou seja, o valor final do deslocamento vai depender de quantas visitas por dia irei fazer ao seu Pet.</p>
-            <aside>
+            <aside id="aparte">
                 <h2>Exemplos de Orçamentos para 3 dias de visitas</h2>
-                <section>
+                <section id="exemplos">
                     <p>3 diárias <br>+<br>1 visita por dia <br>+<br>1 Pet <br>=<br>R$ 210,00</p>
                     <p>3 diárias <br>+<br>2 visitas por dia <br>+<br>1 Pet <br>=<br>R$ 240,00</p>
                     <p>3 diárias <br>+<br>2 visitas por dia <br>+<br>2 Pets <br>=<br>R$ 270,00</p>
                 </section>
+                <section id="faca">
+                    <h4><strong>Faça seu orçamento:</strong></h4>
+                    <p><strong>Serão quantos dias de visita:</strong> <input type="number" name="dias" id="dias" placeholder="exemplo 1"></p>
+                    <p><strong>Quantos Pets estará na residencia:</strong> <input type="number" name="pets" id="pets" placeholder="exemplo 3"></p>
+                    <p><strong>Quantas visitas ao dia serão necessárias:</strong> <input type="number" name="visitas" id="visitas" placeholder="exemplo 2"></p>
+                    <input type="submit" id="botao" value="Calcular" onclick="calcular()">
+                    <p><strong>Total =</strong></p>
+                    <p id="resultado"></p>
+                </section>
             </aside>
-            <p>Faça seu orçamento:</p>
-            <p>Serão quantos dias de visita: <input type="number" name="dias" id="dias"></p>
-            <p>Quantos Pets estará na residencia: <input type="number" name="pets" id="pets"></p>
-            <p>Quantas visitas ao dia serão necessárias: <input type="number" name="visitas" id="visitas"></p>
-            <input type="submit" value="Calcular">
-            <p>Total</p>
-            <p id="resultado"></p>
+            
         </section>
         <section class="sessao">
             <h1>Contate-me</h1>
@@ -121,5 +124,19 @@
             itens.style.display = 'none'
         }
     }
+
+    function calcular(){
+        var inputdias = document.getElementById("dias")
+        var intputpets = document.getElementById("pets")
+        var inputvisitas = document.getElementById("visitas")
+        var calculo
+        var dias = Number(inputdias.value)
+        var pets = Number(intputpets.value)
+        var visitas = Number(inputvisitas.value)
+        calculo = dias*((50 + pets*10) + 10*visitas)
+        resultado.innerHTML = calculo
+    }
+
+        
 </script>
 </html>
