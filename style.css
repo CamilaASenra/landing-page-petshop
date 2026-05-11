@@ -242,6 +242,18 @@ input#botao {
     color: var(--bemescuro);
 }
 
+input#botao:hover {
+    cursor: pointer;
+    background-color: var(--escuro);
+    color: white;
+    transition: background-color 0.5s;
+}
+
+input#botao:active {
+    background-color: var(--bemescuro);
+    transform: scale(0.98);
+}
+
 section#faca > p#resultado {
     text-align: center;
     width: 60vw;
@@ -252,6 +264,32 @@ section#faca > p#resultado {
     border-color: var(--bemescuro);
     box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.493);
     color: var(--bemescuro);
+}
+
+section#contato {
+    background-color: var(--verde);
+    color: white;
+}
+
+section#contato > p > a {
+    text-decoration: none;
+    color: white;
+}
+
+section#contato > p > a:hover {
+    text-decoration: underline;
+    color: var(--clarinho);
+}
+
+div#contato {
+    background-color: var(--clarinho);
+    border-radius: 12% 88% 12% 88% / 53% 47% 47% 53%;
+    margin-top: 40px;
+}
+
+img#logo {
+    width: 4vw;
+    padding-right: 5px;
 }
 
 footer {
