@@ -176,6 +176,101 @@ section#avaliacoes {
     color: var(--bemescuro);
 }
 
+.carrossel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    height: 50vw; /* Altura controlada para dar espaço aos efeitos */
+}
+
+.carrossel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* O palco cria a área centralizada onde as divs se sobrepõem */
+.palco {
+    position: relative;
+    width: 40vw;
+    height: 40vw;
+}
+
+.caixa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.534);
+    
+    /* Configuração padrão: Escondida, menor e sem opacidade */
+    transform: scale(0.8);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none; /* Evita clicar em divs escondidas */
+    transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+}
+
+/* Div em Destaque (Centro) */
+.caixa.ativa {
+    transform: scale(1.1) translateX(0);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.534);
+}
+
+/* Div Anterior (Fundo Esquerdo) */
+.caixa.anterior {
+    transform: scale(0.9) translateX(-100px);
+    opacity: 0.4;
+    z-index: 2;
+}
+
+/* Próxima Div (Fundo Direito) */
+.caixa.proxima {
+    transform: scale(0.9) translateX(100px);
+    opacity: 0.4;
+    z-index: 2;
+}
+
+/* Botões de navegação */
+.seta {
+    background-color: rgba(0, 0, 0, 0.082);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    height: 7vw;
+    width: 7vw;
+}
+
+#prev { left: 10px; }
+#next { right: 10px; }
+
+
+.seta:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
 section#orcamento {
     color: var(--bemescuro);
 }
@@ -383,10 +478,27 @@ footer > p > a:hover {
     section.texto > p > img#logo {
     width: 3vw;
     }
+
+    #prev { left: 2px; }
+    #next { right: 2px; }
 }
 
 @media screen and (min-width: 1024px) {
-    
+
+    .palco {
+        width: 25vw;
+        height: 25vw;
+    }
+
+    .seta {
+        width: 5vw;
+        height: 5vw;
+        
+    }
+
+    #prev { left: -35px; }
+    #next { right: -35px; }
+
     section.sessao {
         display: grid;
         grid-template-columns: 1fr 4fr 4fr 1fr;
@@ -452,6 +564,15 @@ footer > p > a:hover {
 
     div#servicos {
         grid-area: 1/2/2/3;
+    }
+
+    section#avaliacoesDiv {
+        grid-area: 1/2/2/3;
+        width: 30vw;
+    }
+
+    div#avaliacoes {
+        grid-area: 1/3/2/4;
     }
 
     section#texto-orcamento {

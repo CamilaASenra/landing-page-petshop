@@ -73,10 +73,27 @@
             </section>
         </section>
         <section class="sessao" id="avaliacoes">
-            <section class="texto">
+            <section class="texto" id="avaliacoesDiv">
                 <h1>Avaliações</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quod nam, dignissimos nisi iste necessitatibus dolorem quisquam natus exercitationem quos, dolorum mollitia tempora, laudantium est qui officiis id ipsa nesciunt.</p>
             </section>
+            <div class="carrossel-container" id="avaliacoes">
+                <button id="prev" class="seta">&#10094;</button>
+    
+                <div class="carrossel">
+                <!-- Removemos a necessidade de um "trilho" longo horizontal -->
+                    <div class="palco" id="palco">
+                        <!-- A primeira div já começa ativa -->
+                        <div class="caixa ativa" style="background-color: #3498db;">Div 1</div>
+                        <div class="caixa" style="background-color: #e74c3c;">Div 2</div>
+                        <div class="caixa" style="background-color: #2ecc71;">Div 3</div>
+                        <div class="caixa" style="background-color: #f1c40f;">Div 4</div>
+                    </div>
+                </div>
+
+                <button id="next" class="seta">&#10095;</button>
+            </div>
+
         </section>
         <section class="sessao" id="orcamento">
             <div class="sessao" id="orcamento"></div>
@@ -150,6 +167,41 @@
         resultado.innerHTML = "R$ " + calculo + ",00"
     }
 
-        
+    const caixas = document.querySelectorAll('.caixa');
+    const btnPrev = document.getElementById('prev');
+    const btnNext = document.getElementById('next');
+
+    let indexAtivo = 0;
+
+    function atualizarCarrossel() {
+        // Remove todas as classes de efeito antes de aplicar as novas
+        caixas.forEach(caixa => {
+         caixa.classList.remove('ativa', 'anterior', 'proxima');
+        });
+
+        // Calcula os índices do elemento anterior e do próximo de forma circular
+        const indexAnterior = (indexAtivo - 1 + caixas.length) % caixas.length;
+        const indexProximo = (indexAtivo + 1) % caixas.length;
+
+        // Aplica as classes nos elementos corretos
+        caixas[indexAtivo].classList.add('ativa');
+        caixas[indexAnterior].classList.add('anterior');
+        caixas[indexProximo].classList.add('proxima');
+    }
+
+    btnNext.addEventListener('click', () => {
+        indexAtivo = (indexAtivo + 1) % caixas.length;
+        atualizarCarrossel();
+    });
+
+    btnPrev.addEventListener('click', () => {
+        indexAtivo = (indexAtivo - 1 + caixas.length) % caixas.length;
+        atualizarCarrossel();
+    });
+
+    // Inicializa o posicionamento na primeira execução
+    atualizarCarrossel();
+
+    
 </script>
 </html>
