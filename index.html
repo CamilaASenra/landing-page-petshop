@@ -6,6 +6,7 @@
     <title>PetSitter</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
+    
 </head>
 <body onresize="mudouTamanho()">
     <header>
@@ -79,7 +80,6 @@
             </section>
             <div class="carrossel-container" id="avaliacoes">
                 <button id="prev" class="seta">&#10094;</button>
-    
                 <div class="carrossel">
                 <!-- Removemos a necessidade de um "trilho" longo horizontal -->
                     <div class="palco" id="palco">
@@ -173,7 +173,7 @@
 
     let indexAtivo = 0;
 
-    function atualizarCarrossel() {
+    /*function atualizarCarrossel() {
         // Remove todas as classes de efeito antes de aplicar as novas
         caixas.forEach(caixa => {
          caixa.classList.remove('ativa', 'anterior', 'proxima');
@@ -200,8 +200,107 @@
     });
 
     // Inicializa o posicionamento na primeira execução
-    atualizarCarrossel();
+    atualizarCarrossel();*/
 
+    const avaliacoesFicticias = [
+    {
+        nome: "Ana Silva",
+        foto: "https://randomuser.me/api/portraits/women/1.jpg", // Foto fictícia de IA
+        nota: 5,
+        comentario: "A melhor pet sitter que já contratei! Ela cuidou dos meus dois gatos com um carinho imenso, mandava fotos e vídeos em todas as visitas. Viajei super tranquila!"
+    },
+    {
+        nome: "Carlos Souza",
+        foto: "https://randomuser.me/api/portraits/men/2.jpg",
+        nota: 5,
+        comentario: "Extremamente profissional e pontual. Meu cachorro é bem desconfiado com estranhos, mas ela conquistou ele logo no primeiro dia. Recomendo de olhos fechados."
+    },
+    {
+        nome: "Mariana Costa",
+        foto: "https://randomuser.me/api/portraits/women/3.jpg",
+        nota: 4,
+        comentario: "Muito atenciosa e cuidadosa. Fez companhia pro meu gato durante o feriado e salvou minhas férias. Com certeza vou contratar novamente nas próximas viagens."
+    },
+    {
+        nome: "Daniel Almeida",
+        foto: "https://randomuser.me/api/portraits/men/75.jpg",
+        nota: 4,
+        comentario: "Serviço impecável! Seguiu todas as instruções de alimentação e medicação da minha cachorrinha idosa à risca. Dá para ver que ama de verdade o que faz."
+    }
+    ];
+
+    function criarEstrelas(nota) {
+        return '★'.repeat(nota) + '☆'.repeat(5 - nota);
+    }
+
+    // 3. Limpar o conteúdo estático antigo e injetar os novos cards
+palco.innerHTML = ''; // Apaga as divs de teste (Div 1, Div 2, etc.)
+
+avaliacoesFicticias.forEach((item, index) => {
+  const card = document.createElement('div');
+  card.classList.add('caixa');
+  
+  // A primeira avaliação (index 0) precisa começar com a classe 'ativa'
+  if (index === 0) {
+    card.classList.add('ativa');
+  }
+
+  // Estrutura interna do card de avaliação
+  card.innerHTML = `
+    <div class="topo-card">
+      <img src="${item.foto}" alt="${item.nome}" style="width: 50px; height: 50px; border-radius: 50%;">
+      <div>
+        <h4 id="nome">${item.nome}</h4>
+        <div id="estrela">${criarEstrelas(item.nota)}</div>
+        <p id="comentario">"${item.comentario}"</p>
+      </div>
+    </div>
     
+  `;
+
+  palco.appendChild(card);
+});
+
+let count = 0;
+const cards = document.querySelectorAll('.caixa');
+
+function selectCarousel() {
+    // 1. Limpa as classes de posicionamento de todas as caixas
+    cards.forEach(caixa => {
+        caixa.classList.remove('ativa', 'anterior', 'proxima');
+    });
+
+    // 2. Calcula matematicamente quem é o vizinho da esquerda e da direita
+    // O uso do % (módulo) garante que o carrossel seja infinito para os dois lados
+    const indiceAnterior = (count - 1 + cards.length) % cards.length;
+    const indiceProximo = (count + 1) % cards.length;
+
+    // 3. Aplica as classes baseadas no seu 'count' atual
+    cards[count].classList.add('ativa');
+    cards[indiceAnterior].classList.add('anterior');
+    cards[indiceProximo].classList.add('proxima');
+}
+
+// Sua lógica de clique idêntica, apenas chamando a nova função de classes
+document.getElementById('next').addEventListener('click', () => {
+    if (count < cards.length - 1) {
+        count++;
+    } else {
+        count = 0;
+    }
+    selectCarousel();
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+    if (count > 0) {
+        count--;
+    } else {
+        count = cards.length - 1;
+    }
+    selectCarousel();
+});
+
+// Inicializa chamando a função para o primeiro card começar correto
+selectCarousel();
 </script>
 </html>

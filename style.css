@@ -1,27 +1,28 @@
 @charset "UTF-8";
 /*#C7FFED (claro); #D8FFDB (clarinho); #008F8C (verde); #015958 (escuro); #023535 (bem escuro)*/
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=LXGW+Marker+Gothic&display=swap');
+
+
 :root {
     --claro: #C7FFED;
     --clarinho: #D8FFDB;
     --verde: #008F8C;
     --escuro: #015958;
-    --bemescuro: #023535
+    --bemescuro: #023535;
+    --cabecalho: #051711;
 }
 
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "LXGW Marker Gothic", Arial, Helvetica, sans-serif;
     margin: 0px;
     padding: 0px;
 }
 
-body {
-    width: 97vw;
-}
 
 header {
     width: 97vw;
-    background-color: var(--claro);
-    border-radius:  0px 0px 10px 10px;
+    background-color: var(--cabecalho);
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
@@ -30,15 +31,15 @@ header {
 header > h1 {
     padding: 10px;
     text-align: left;
-    color: var(--bemescuro);
+    color: white;
 }
 
 span#burger {
     position: fixed;
     right: 0;
     top: 0;
-    background-color: var(--claro);
-    color: var(--bemescuro);
+    background-color: var(--cabecalho);
+    color: white;
     display: inline-block;
     text-align: center;
     padding: 10px;
@@ -51,8 +52,8 @@ span#burger {
 }
 
 span#burger:hover {
-    background-color: var(--verde);
-    color: var(--claro);
+    background-color: var(--clarinho);
+    color: var(--cabecalho);
 }
 
 menu {
@@ -63,7 +64,7 @@ menu {
     margin-top: 50px;
     margin-right: 10px;
     border-radius: 10px;
-    border: 2px solid var(--verde);
+    border: 2px solid var(--cabecalho);
 }
 
 menu > ul {
@@ -84,7 +85,7 @@ menu > ul > li > a {
     text-decoration: none;
     text-align: center;
     background-color: var(--clarinho);
-    color: var(--bemescuro);
+    color: var(--cabecalho);
     font-weight: bold;
     border-top: 2px solid var(--verde);
     width: 90px;
@@ -93,7 +94,7 @@ menu > ul > li > a {
 
 menu > ul > li > a:hover {
     color: var(--clarinho);
-    background-color: var(--verde);
+    background-color: var(--bemescuro);
     transition-duration: 0.5s;
 }
 
@@ -206,6 +207,27 @@ section#avaliacoes {
     position: relative;
     width: 40vw;
     height: 40vw;
+}
+
+h4#nome {
+    color: var(--bemescuro);
+    font-size: medium;
+    text-align: center;
+}
+
+div#estrela {
+    color: gold;
+    font-size: small;
+}
+
+p#comentario {
+    color: var(--bemescuro);
+    font-size: x-small;
+    width: 30vw;
+}
+
+div.caixa {
+    background-color: var(--clarinho);
 }
 
 .caixa {
@@ -433,7 +455,7 @@ footer > p > a:hover {
     }
 
     nav {
-        background-color: var(--claro);
+        background-color: var(--cabecalho);
         width: 98vw;
         position: sticky;
         top: 0;
@@ -454,18 +476,19 @@ footer > p > a:hover {
 
     menu > ul > li > a {
         font-weight: bold;
-        color: var(--verde);
-        background-color: var(--claro);
+        color: white;
+        background-color: var(--cabecalho);
         border-radius: 0px;
         border-top: 0px;
-        box-shadow: 0px 1px 0.5px var(--verde);
         width: auto;
         margin-left: 10px;
         margin-bottom: 2px;
+        border-bottom: solid 1px var(--claro);
     }
 
     menu > ul > li > a:hover {
-        color: var(--claro);
+        color: var(--bemescuro);
+        background-color: var(--claro);
     }
 
     menu > ul > li > a#home {
@@ -491,6 +514,11 @@ footer > p > a:hover {
 
     #prev { left: 2px; }
     #next { right: 2px; }
+
+    p#comentario {
+        font-size: small;
+        margin-top: 5px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -509,13 +537,29 @@ footer > p > a:hover {
     #prev { left: -35px; }
     #next { right: -35px; }
 
+    p#comentario {
+        width: 20vw;
+    }
+
+    .caixa.anterior{
+        transform: scale(0.8) translateX(-250px);
+    }
+
+    .caixa.proxima{
+        transform: scale(0.8) translateX(250px);
+    }
+
+    div.carrossel {
+        max-height: 450px;
+    }
+
     section.sessao {
         display: grid;
         grid-template-columns: 1fr 4fr 4fr 1fr;
         place-items: center;
         gap: 50px;
         margin-left: 0;
-        min-height: 500px;
+        min-height: 600px;
     }
     
     div.sessao {
@@ -580,8 +624,19 @@ footer > p > a:hover {
         grid-area: 1/2/2/3;
     }
 
+    section#avaliacoes{
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    div.carrossel-container{
+        max-height: 600px;
+    }
+
     section#avaliacoesDiv {
         grid-area: 1/2/2/3;
+        padding-top: 60px;
     }
 
     div#avaliacoes {
