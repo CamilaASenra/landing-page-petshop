@@ -90,10 +90,8 @@
                         <div class="caixa" style="background-color: #f1c40f;">Div 4</div>
                     </div>
                 </div>
-
                 <button id="next" class="seta">&#10095;</button>
             </div>
-
         </section>
         <section class="sessao" id="orcamento">
             <div class="sessao" id="orcamento"><img src="imagens/fotos/cao-gato3.png" alt="cachorro e gato" id="div"></div>
@@ -173,35 +171,6 @@
 
     let indexAtivo = 0;
 
-    /*function atualizarCarrossel() {
-        // Remove todas as classes de efeito antes de aplicar as novas
-        caixas.forEach(caixa => {
-         caixa.classList.remove('ativa', 'anterior', 'proxima');
-        });
-
-        // Calcula os índices do elemento anterior e do próximo de forma circular
-        const indexAnterior = (indexAtivo - 1 + caixas.length) % caixas.length;
-        const indexProximo = (indexAtivo + 1) % caixas.length;
-
-        // Aplica as classes nos elementos corretos
-        caixas[indexAtivo].classList.add('ativa');
-        caixas[indexAnterior].classList.add('anterior');
-        caixas[indexProximo].classList.add('proxima');
-    }
-
-    btnNext.addEventListener('click', () => {
-        indexAtivo = (indexAtivo + 1) % caixas.length;
-        atualizarCarrossel();
-    });
-
-    btnPrev.addEventListener('click', () => {
-        indexAtivo = (indexAtivo - 1 + caixas.length) % caixas.length;
-        atualizarCarrossel();
-    });
-
-    // Inicializa o posicionamento na primeira execução
-    atualizarCarrossel();*/
-
     const avaliacoesFicticias = [
     {
         nome: "Ana Silva",
@@ -234,73 +203,73 @@
     }
 
     // 3. Limpar o conteúdo estático antigo e injetar os novos cards
-palco.innerHTML = ''; // Apaga as divs de teste (Div 1, Div 2, etc.)
+    palco.innerHTML = ''; // Apaga as divs de teste (Div 1, Div 2, etc.)
 
-avaliacoesFicticias.forEach((item, index) => {
-  const card = document.createElement('div');
-  card.classList.add('caixa');
+    avaliacoesFicticias.forEach((item, index) => {
+    const card = document.createElement('div');
+    card.classList.add('caixa');
   
-  // A primeira avaliação (index 0) precisa começar com a classe 'ativa'
-  if (index === 0) {
-    card.classList.add('ativa');
-  }
+    // A primeira avaliação (index 0) precisa começar com a classe 'ativa'
+    if (index === 0) {
+        card.classList.add('ativa');
+    }
 
-  // Estrutura interna do card de avaliação
-  card.innerHTML = `
-    <div class="topo-card">
-      <img src="${item.foto}" alt="${item.nome}" style="width: 50px; height: 50px; border-radius: 50%;">
-      <div>
-        <h4 id="nome">${item.nome}</h4>
-        <div id="estrela">${criarEstrelas(item.nota)}</div>
-        <p id="comentario">"${item.comentario}"</p>
-      </div>
-    </div>
+    // Estrutura interna do card de avaliação
+    card.innerHTML = `
+        <div class="topo-card">
+        <img src="${item.foto}" alt="${item.nome}" style="width: 50px; height: 50px; border-radius: 50%;">
+        <div>
+            <h4 id="nome">${item.nome}</h4>
+            <div id="estrela">${criarEstrelas(item.nota)}</div>
+            <p id="comentario">"${item.comentario}"</p>
+        </div>
+        </div>
     
-  `;
+    `;
 
-  palco.appendChild(card);
-});
-
-let count = 0;
-const cards = document.querySelectorAll('.caixa');
-
-function selectCarousel() {
-    // 1. Limpa as classes de posicionamento de todas as caixas
-    cards.forEach(caixa => {
-        caixa.classList.remove('ativa', 'anterior', 'proxima');
+    palco.appendChild(card);
     });
 
-    // 2. Calcula matematicamente quem é o vizinho da esquerda e da direita
-    // O uso do % (módulo) garante que o carrossel seja infinito para os dois lados
-    const indiceAnterior = (count - 1 + cards.length) % cards.length;
-    const indiceProximo = (count + 1) % cards.length;
+    let count = 0;
+    const cards = document.querySelectorAll('.caixa');
 
-    // 3. Aplica as classes baseadas no seu 'count' atual
-    cards[count].classList.add('ativa');
-    cards[indiceAnterior].classList.add('anterior');
-    cards[indiceProximo].classList.add('proxima');
-}
+    function selectCarousel() {
+        // 1. Limpa as classes de posicionamento de todas as caixas
+        cards.forEach(caixa => {
+            caixa.classList.remove('ativa', 'anterior', 'proxima');
+        });
 
-// Sua lógica de clique idêntica, apenas chamando a nova função de classes
-document.getElementById('next').addEventListener('click', () => {
-    if (count < cards.length - 1) {
-        count++;
-    } else {
-        count = 0;
+        // 2. Calcula matematicamente quem é o vizinho da esquerda e da direita
+        // O uso do % (módulo) garante que o carrossel seja infinito para os dois lados
+        const indiceAnterior = (count - 1 + cards.length) % cards.length;
+        const indiceProximo = (count + 1) % cards.length;
+
+        // 3. Aplica as classes baseadas no seu 'count' atual
+        cards[count].classList.add('ativa');
+        cards[indiceAnterior].classList.add('anterior');
+        cards[indiceProximo].classList.add('proxima');
     }
-    selectCarousel();
-});
 
-document.getElementById('prev').addEventListener('click', () => {
-    if (count > 0) {
-        count--;
-    } else {
-        count = cards.length - 1;
-    }
-    selectCarousel();
-});
+    // Sua lógica de clique idêntica, apenas chamando a nova função de classes
+    document.getElementById('next').addEventListener('click', () => {
+        if (count < cards.length - 1) {
+            count++;
+        } else {
+            count = 0;
+        }
+        selectCarousel();
+    });
 
-// Inicializa chamando a função para o primeiro card começar correto
-selectCarousel();
-</script>
-</html>
+    document.getElementById('prev').addEventListener('click', () => {
+        if (count > 0) {
+         count--;
+        } else {
+            count = cards.length - 1;
+        }
+        selectCarousel();
+    });
+
+    // Inicializa chamando a função para o primeiro card começar correto
+    selectCarousel();
+    </script>
+    </html>

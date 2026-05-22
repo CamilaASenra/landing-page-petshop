@@ -1,9 +1,9 @@
 @charset "UTF-8";
-/*#C7FFED (claro); #D8FFDB (clarinho); #008F8C (verde); #015958 (escuro); #023535 (bem escuro)*/
 
+/*Fonte utilizada: "LXGW Marker Gothic".*/
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=LXGW+Marker+Gothic&display=swap');
 
-
+/*Variáveis de cores usadas no projeto.*/
 :root {
     --claro: #C7FFED;
     --clarinho: #D8FFDB;
@@ -13,34 +13,40 @@
     --cabecalho: #051711;
 }
 
+
+/*Configurações raiz.*/
 * {
     font-family: "LXGW Marker Gothic", Arial, Helvetica, sans-serif;
     margin: 0px;
     padding: 0px;
 }
 
+/*Configuração principal é para Mobile First.*/
 
+/*Configurações do header.*/
 header {
-    width: 97vw;
+    width: 97vw;/*Não é 100vw para não ter rolagem lateral.*/
     background-color: var(--cabecalho);
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
+    display: inline-flex; /*Para o meu h1 e meu menu ficarem na mesma linha.*/
+    justify-content: space-between; /*Espaçamento entre os itens, coloca um na direita e outro na esquerda. Se eu tivesse mais itens eles iriam se distribuir com espaçamentos iguais entre os das extremidades.*/
+    align-items: center; /*Para eles ficarem no meio da linhas (sentido vertical).*/
 }
 
+/*Configuração do h1*/
 header > h1 {
     padding: 10px;
     text-align: left;
     color: white;
 }
 
+/*Configuração do menu hambúrguer.*/
 span#burger {
-    position: fixed;
+    position: fixed; /*Faz com que o menu permaneça na tela mesmo que eu dê scroll na página.*/
     right: 0;
     top: 0;
     background-color: var(--cabecalho);
     color: white;
-    display: inline-block;
+    display: inline-block; /*Faz com que as opções de menu fiquem uma abaixo da outra.*/
     text-align: center;
     padding: 10px;
     cursor: pointer;
@@ -56,9 +62,10 @@ span#burger:hover {
     color: var(--cabecalho);
 }
 
+/*Configuração do menu.*/
 menu {
-    display: none;
-    position: fixed;
+    display: none; /*O menu não ficará aparente quando a largura do viewport da tela for menor que 768px.*/
+    position: fixed; /*Faz com que o menu permaneça na tela mesmo que eu dê scroll na página.*/
     right: 0;
     top: 0;
     margin-top: 50px;
@@ -68,15 +75,15 @@ menu {
 }
 
 menu > ul {
-    list-style-type: none;
+    list-style-type: none; /*Tira as "bolinhas" da lista.*/
 }
 
 menu > ul > li > a#home {
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px; /*Estilização da opção dentro do menu hambúrguer.*/
 }
 
 menu > ul > li > a#contateme {
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px; /*Estilização da opção dentro do menu hambúrguer.*/
 }
 
 menu > ul > li > a {
@@ -89,7 +96,7 @@ menu > ul > li > a {
     font-weight: bold;
     border-top: 2px solid var(--verde);
     width: 90px;
-    margin: 0 auto;
+    margin: 0 auto; /*Para os elementos ocuparem o centro.*/
 }
 
 menu > ul > li > a:hover {
@@ -98,16 +105,18 @@ menu > ul > li > a:hover {
     transition-duration: 0.5s;
 }
 
+/*Configuração do Main.*/
 main {
     width: auto;
     background-color: white;
     margin: auto;
 }
 
+/*Configurações gerais das sessões.*/
 section.sessao {
     padding-top: 20px;
     padding-bottom: 20px;
-    margin: 0 auto;
+    margin: 0 auto; /*Para centralizar os elementos.*/
     text-align: center;
 }
 
@@ -122,161 +131,91 @@ section.sessao > section > p {
     margin: 0px auto;
 }
 
+/*Configurações gerais das divs.*/
 div.sessao {
     height: 50vw;
     width: 80vw;
     margin: 0 auto;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.534);
-    overflow: hidden;
+    overflow: hidden; /*Para esconder as partes dos elementos que vazarem de dentro da div.*/
 }
 
+/*Configuração geral das imagens.*/
 img#div {
     height: 50vw;
-
 }
 
+/*Configuração da sessão apresentação.*/
 section#apresentacao {
     background-color: var(--verde);
     color: white;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.534);
 }
 
+/*Configuração da div apresentação.*/
 div#apresentacao {
     background-color: var(--claro);
     border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
 }
 
+/*Configuração da sessão o que é.*/
 section#oqe {
     color: var(--bemescuro);
 }
 
+/*Configuração da div o que é.*/
 div#oqe {
     background-color: var(--escuro);
     border-radius: 50% 40% 50% 40% /80% 20% 80% 20%;
 }
 
+/*Configuração dos itens da lista o que é.*/
 ul#lista-oqe > li {
    list-style: none;
 }
 
+/*Configuração da sessão sobre.*/
 section#sobre {
     background-color: var(--bemescuro);
     color: white;
 }
 
+/*Configuração da div sobre.*/
 div#sobre {
     background-color: var(--claro);
     border-radius: 10% 90% 10% 90% / 50% 50% 50% 50%;
 }
 
+/*Configuração da sessão serviços.*/
 section#servicos {
     color: var(--bemescuro);
 }
 
+/*Configuração da div serviços.*/
 div#servicos {
     background-color: var(--verde);
     border-radius: 25% 75% 75% 25% / 35% 65% 65% 35%;
 }
 
+/*Configuração da sessão avaliações.*/
 section#avaliacoes {
     background-color: var(--claro);
     color: var(--bemescuro);
 }
 
+/*Configuração da div classe carrossel. Início das configurações do carrossel de avaliações.*/
 .carrossel-container {
-    display: flex;
+    display: flex; /*Para as divs ficarem lado a lado.*/
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: relative; /*Para os elementos filhos ficarem posicionados em relação ao carrossel container.*/
     width: 100%;
     max-width: 600px;
     margin: auto;
     height: 50vw; /* Altura controlada para dar espaço aos efeitos */
 }
 
-.carrossel {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* O palco cria a área centralizada onde as divs se sobrepõem */
-.palco {
-    position: relative;
-    width: 40vw;
-    height: 40vw;
-}
-
-h4#nome {
-    color: var(--bemescuro);
-    font-size: medium;
-    text-align: center;
-}
-
-div#estrela {
-    color: gold;
-    font-size: small;
-}
-
-p#comentario {
-    color: var(--bemescuro);
-    font-size: x-small;
-    width: 30vw;
-}
-
-div.caixa {
-    background-color: var(--clarinho);
-}
-
-.caixa {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.534);
-    
-    /* Configuração padrão: Escondida, menor e sem opacidade */
-    transform: scale(0.8);
-    opacity: 0;
-    z-index: 1;
-    pointer-events: none; /* Evita clicar em divs escondidas */
-    transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
-}
-
-/* Div em Destaque (Centro) */
-.caixa.ativa {
-    transform: scale(1.1) translateX(0);
-    opacity: 1;
-    z-index: 3;
-    pointer-events: auto;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.534);
-}
-
-/* Div Anterior (Fundo Esquerdo) */
-.caixa.anterior {
-    transform: scale(0.9) translateX(-100px);
-    opacity: 0.4;
-    z-index: 2;
-}
-
-/* Próxima Div (Fundo Direito) */
-.caixa.proxima {
-    transform: scale(0.9) translateX(100px);
-    opacity: 0.4;
-    z-index: 2;
-}
-
-/* Botões de navegação */
+/*Configuração dos botões de navegação.*/
 .seta {
     background-color: rgba(0, 0, 0, 0.082);
     color: white;
@@ -290,24 +229,106 @@ div.caixa {
     width: 7vw;
 }
 
+/*Posição dos botões.*/
 #prev { left: 10px; }
 #next { right: 10px; }
 
-
+/*Configuração de dos botões quando a seta está por cima.*/
 .seta:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/*Configuração do carrossel, filho do carrossel-container.*/
+.carrossel {
+    width: 100%;
+    height: 100%;
+    display: flex; /*Disposição dos elementos.*/
+    justify-content: center;
+    align-items: center;
+}
 
+/*O palco cria a área centralizada onde as divs se sobrepõem. (Filho da div carrossel)*/
+.palco {
+    position: relative; /*Para os elementos filhos ficarem posicionados em relação ao palco.*/
+    width: 100%;
+    width: 40vw;
+    height: 40vw;
+}
+
+/*Configuração da div em Destaque (Centro) (Elemento filho da div palco)*/
+.caixa.ativa {
+    transform: scale(1.1) translateX(0);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.534);
+}
+
+/* Div (caixa) Anterior (Fundo Esquerdo) (Elemento filho da div palco)*/
+.caixa.anterior {
+    transform: scale(0.9) translateX(-100px); /*Tamanho e posição.*/
+    opacity: 0.4;
+    z-index: 2;
+}
+
+/* Próxima Div (Fundo Direito) (Elemento filho da div palco)*/
+.caixa.proxima {
+    transform: scale(0.9) translateX(100px); /*Tamanho e posição.*/
+    opacity: 0.4;
+    z-index: 2;
+}
+
+/*Configuração das caixas (a div que está as avaliações). (Elemento filho da div palco)*/
+.caixa {
+    position: absolute; /*Os elementos filhos se posicionam em relação a tela*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.534);
+    background-color: var(--clarinho);
+    transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;/*Efeito de transição entre as transições.*/
+}
+
+/*Configuração do h4 dentro do palco. (Está dentro da div.caixa)*/
+h4#nome {
+    color: var(--bemescuro);
+    font-size: medium;
+    text-align: center;
+}
+
+/*Configuração das estrelas. (Está dentro da div.caixa)*/
+div#estrela {
+    color: gold;
+    font-size: small;
+}
+
+/*Configuração dos comentários. (Está dentro da div.caixa)*/
+p#comentario {
+    color: var(--bemescuro);
+    font-size: x-small;
+    width: 30vw;
+}
+
+/*Configuração da sessão orçamento.*/
 section#orcamento {
     color: var(--bemescuro);
 }
 
+/*Configuração da div orçamento.*/
 div#orcamento {
     background-color: var(--bemescuro);
     border-radius: 32% 68% 32% 68% / 43% 57% 57% 43%;
 }
 
+/*Configuração da aside. (Está dentro da sessão orçamento)*/
 aside#aparte {
     background-color: var(--claro);
     background-image: linear-gradient(var(--claro), var(--verde));
@@ -318,12 +339,14 @@ aside#aparte {
     padding: 10px;
 }
 
+/*Configuração da sessão exemplos (Está dentro do aside)*/
 section#exemplos {
     display: flex;
     margin: 15px;
     justify-content: space-around;
 }
 
+/*Configuração dos parágrafos da sessão exemplos (Está dentro do aside)*/
 section#exemplos > p {
     background-color: var(--bemescuro);
     color: white;
@@ -334,18 +357,21 @@ section#exemplos > p {
     border-radius: 5px;
 }
 
+/*Configuração do h4 que está dentro da sessão faça (calculadora de orçamento).*/
 section#faca > h4 {
     padding: 10px;
     color: var(--bemescuro);
     text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.61);
 }
 
+/*Configuração do parágrafo que está dentro da sessão faça.*/
 section#faca > p{
     padding: 10px;
     text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.61);
     text-align: start;
 }
 
+/*Configuração dos inputs number.*/
 input#dias, input#visitas, input#pets {
     width: 80px;
     height: 20px;
@@ -357,6 +383,7 @@ input#dias, input#visitas, input#pets {
     color: var(--bemescuro);
 }
 
+/*Configuração do botão calcular.*/
 input#botao {
     width: 80px;
     height: 35px;
@@ -368,6 +395,7 @@ input#botao {
     color: var(--bemescuro);
 }
 
+/*Configuração do botão calcular quando o mouse está por cima.*/
 input#botao:hover {
     cursor: pointer;
     background-color: var(--escuro);
@@ -375,11 +403,13 @@ input#botao:hover {
     transition: background-color 0.5s;
 }
 
+/*Configuração do botão calcular quando ele é ativado.*/
 input#botao:active {
     background-color: var(--bemescuro);
     transform: scale(0.98);
 }
 
+/*Configuração do parágrafo de resultado que está dentro da sessão faça.*/
 section#faca > p#resultado {
     text-align: center;
     width: 60vw;
@@ -392,53 +422,63 @@ section#faca > p#resultado {
     color: var(--bemescuro);
 }
 
+/*Configuração da sessão contato.*/
 section#contato {
     background-color: var(--verde);
     color: white;
 }
 
+/*Configuração dos links dentro da sessão contato. (Está dentro da sessão texto, que está dentro da sessão contato.)*/
 section#contato > section.texto > p > a {
-    text-decoration: none;
+    text-decoration: none; /*Tira a estilização pré definida do link.*/
     color: white;
 }
 
+/*Configuração dos links dentro da sessão contato quando o mouse está por cima. (Está dentro da sessão texto, que está dentro da sessão contato.)*/
 section#contato > section.texto > p > a:hover {
     text-decoration: underline;
     color: var(--clarinho);
 }
 
+/*Configuração das imagens. (Está dentro de um parágrafo, que está dentro da sessão texto, que está dentro da sessão contato.)*/
+section.texto > p > img#logo {
+    width: 4vw;
+    padding-right: 5px;
+}
+
+/*Configuração da div contato.*/
 div#contato {
     background-color: var(--clarinho);
     border-radius: 12% 88% 12% 88% / 53% 47% 47% 53%;
     margin-top: 40px;
 }
 
-section.texto > p > img#logo {
-    width: 4vw;
-    padding-right: 5px;
-}
-
+/*Configuração do footer.*/
 footer {
     background-color: var(--bemescuro);
     color: white;
 }
 
+/*Configuração do parágrafo do footer.*/
 footer > p {
     padding: 5px;
     text-align: center;
 }
 
+/*Configuração do link do footer.*/
 footer > p > a {
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
+/*Configuração do link do footer quando o mouse está por cima.*/
 footer > p > a:hover {
     text-decoration: underline;
     color: var(--claro);
 }
 
+/*Configuração para telas médias, minímo de 768 pixels, exemplo tablets.*/
 @media screen and (min-width: 768px) {
     body {
         width: 98vw;
@@ -451,14 +491,14 @@ footer > p > a:hover {
     }
     
     span#burger {
-        display: none;
+        display: none; /*Tirar o efeito de menu hambúrguer.*/
     }
 
     nav {
         background-color: var(--cabecalho);
         width: 98vw;
         position: sticky;
-        top: 0;
+        top: 0; /*Fixar o menu no topo.*/
         z-index: 1000;
     }
 
@@ -471,9 +511,10 @@ footer > p > a:hover {
     }
 
     menu > ul > li {
-        display: inline-block;
+        display: inline-block; /*Configura as opções lado a lado.*/
     }
 
+    /*Configurações dos links/opções.*/
     menu > ul > li > a {
         font-weight: bold;
         color: white;
@@ -486,168 +527,180 @@ footer > p > a:hover {
         border-bottom: solid 1px var(--claro);
     }
 
+    /*Configurações dos links/opções quando o mouse está por cima.*/
     menu > ul > li > a:hover {
         color: var(--bemescuro);
         background-color: var(--claro);
     }
 
     menu > ul > li > a#home {
-    border-radius: 0px;
+    border-radius: 0px; /*Tirar o border-radius que foi necessário no menu hambúrguer.*/
     }
 
     menu > ul > li > a#contateme {
-    border-radius: 0px;
+    border-radius: 0px; /*Tirar o border-radius que foi necessário no menu hambúrguer.*/
     }
 
+    /*Ajuste do tamanho das divs sessão.*/
     div.sessao {
         height: 40vw;
         width: 60vw;
     }
 
+    /*Ajuste do tamanho das imagens dentro das divs.*/
     img#div {
         height: 40vw;
     }
 
-    section.texto > p > img#logo {
-    width: 3vw;
-    }
-
+    /*Ajuste do tamanho dos botões do carrossel de avaliações.*/
     #prev { left: 2px; }
     #next { right: 2px; }
 
+    /*Ajuste do tamanho dos comentários do carrossel de avaliações.*/
     p#comentario {
         font-size: small;
         margin-top: 5px;
     }
+
+    /*Ajuste do tamanho da imagem que está dentro do parágrafo da sessão texto, que pertence a sessão contato.*/
+    section.texto > p > img#logo {
+    width: 3vw;
+    }
 }
 
+/*Configuração para telas grandes, minímo de 1024 pixels, exemplo desktops.*/
 @media screen and (min-width: 1024px) {
 
-    .palco {
-        width: 25vw;
-        height: 25vw;
-    }
-
-    .seta {
-        width: 5vw;
-        height: 5vw;
-        
-    }
-
-    #prev { left: -35px; }
-    #next { right: -35px; }
-
-    p#comentario {
-        width: 20vw;
-    }
-
-    .caixa.anterior{
-        transform: scale(0.8) translateX(-250px);
-    }
-
-    .caixa.proxima{
-        transform: scale(0.8) translateX(250px);
-    }
-
-    div.carrossel {
-        max-height: 450px;
-    }
-
+    /*Configuração geral das sections.*/
     section.sessao {
-        display: grid;
-        grid-template-columns: 1fr 4fr 4fr 1fr;
-        place-items: center;
-        gap: 50px;
+        display: grid; /*Disposição dos elementos em grid.*/
+        grid-template-columns: 1fr 4fr 4fr 1fr; /*Configuração de quantas colunas terá o grid e os tamanhos.*/
+        place-items: center; /*Centralização dos itens na coluna.*/
+        gap: 50px; /*Espaço entre as colunas.*/
         margin-left: 0;
-        min-height: 600px;
+        min-height: 600px; /*Altura miníma da section.*/
     }
     
+    /*Configuração geral das divs.*/
     div.sessao {
         height: 20vw;
         width: 30vw;
         margin: 0 auto;
     }
 
+    /*Ajustando o tamamnho das imagens dentro das divs*/
     img#div {
         height: 20vw;
     }
 
-    div#orcamento {
-        display: none;
-    }
-
-    aside#aparte {
-        width: 45vw;
-        grid-area: 1/3/2/4;
-    }
-
-    section#faca > p#resultado {
-        width: 40vw;
-    }
-
-    section.texto {
-        width: 50vw;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    section#apresentacao {
+    /*Configuração do posicionamento das divs e sections dentro do grid.*/
+    section#apresentacao, div#oqe, section#sobre, div#servicos, section#texto-orcamento, section.texto {
         grid-area: 1/2/2/3;
     }
 
-    div#apresentacao {
+    /*Configuração do posicionamento das divs e sections dentro do grid.*/
+    div#apresentacao, section#oqe, div#sobre, section#servicos, div#contato, aside#aparte {
         grid-area: 1/3/2/4;
     }
 
-    section#oqe {
-        grid-area: 1/3/2/4;
-    }
-
-    div#oqe {
-        grid-area: 1/2/2/3;
-    }
-
-    section#sobre {
-        grid-area: 1/2/2/3;
-    }
-
-    div#sobre {
-        grid-area: 1/3/2/4;
-    }
-
-    section#servicos {
-        grid-area: 1/3/2/4;
-    }
-
-    div#servicos {
-        grid-area: 1/2/2/3;
-    }
-
+    /*Configuração da section avaliações.*/
     section#avaliacoes{
-        display: block;
+        display: block; /*Faz os elementos ocuparem toda a linha, forçando o próximo a ir para baixo.*/
         margin: 0;
         padding: 0;
     }
 
+    /*Configuração da section avaliaçõesDiv*/
+    section#avaliacoesDiv {
+        padding-top: 60px;
+    }
+
+    /*Configuração da section texto (ou div avaliacoesDiv)*/
+    section.texto {
+        width: 50vw;
+        display: flex;
+        flex-wrap: wrap; /*Organiza os elementos em uma linha vertical.*/
+        justify-content: center;
+    }
+
+    /*Ajuste do tamanho máximo da div carrossel-container.*/
     div.carrossel-container{
         max-height: 600px;
     }
 
-    section#avaliacoesDiv {
-        grid-area: 1/2/2/3;
-        padding-top: 60px;
+    /*Ajuste do tamanho dos botões (está dentro da div carrossel-container).*/
+    .seta {
+        width: 5vw;
+        height: 5vw; 
     }
 
-    div#avaliacoes {
-        grid-area: 1/3/2/4;
+    /*Ajuste do posicionamento dos botões (está dentro da div carrossel-container).*/
+    #prev { left: -35px; }
+    #next { right: -35px; }
+
+    /*Ajuste do tamanho máximo da div carrossel (está dentro da div carrossel-container).*/
+    div.carrossel {
+        max-height: 450px;
     }
 
+    /*Ajuste do tamanho da div palco (está dentro da div carrossel).*/
+    .palco {
+        width: 25vw;
+        height: 25vw;
+    }
+
+    /*Ajuste das caixas que não estão em evidência.*/
+    .caixa.anterior{
+        transform: scale(0.8) translateX(-200px);
+    }
+
+    /*Ajuste das caixas que não estão em evidência.*/
+    .caixa.proxima{
+        transform: scale(0.8) translateX(200px);
+    }
+
+    /*Ajuste do tamanho da div palco (está dentro da div carrossel).*/
+    .palco {
+        width: 25vw;
+        height: 25vw;
+    }
+
+    /*Ajuste das caixas que não estão em evidência (está dentro da div palco).*/
+    .caixa.anterior{
+        transform: scale(0.8) translateX(-200px);
+    }
+
+    /*Ajuste das caixas que não estão em evidência (está dentro da div palco).*/
+    .caixa.proxima{
+        transform: scale(0.8) translateX(200px);
+    }
+
+    /*Ajuste do tamanho do parágrafo (está dentro da div caixa).*/
+    p#comentario {
+        width: 20vw;
+    }
+
+    /*"Escondendo" a div orçamento.*/
+    div#orcamento {
+        display: none;
+    }    
+
+    /*Ajuste do tamanho do texto da section texto-orçamento (está dentro da section orçamento).*/
     section#texto-orcamento {
-        grid-area: 1/2/2/3;
         width: 40vw;
     }
 
+    /*Ajuste do tamanho do aside (está dentro da section orçamento).*/
+     aside#aparte {
+        width: 45vw;
+    }
+
+    /*Ajuste do tamanho do parágrafo resultado (está dentro da section faça que dentro do aside).*/
+    section#faca > p#resultado {
+        width: 40vw;
+    }
+
+    /*Ajuste do tamanho da imagem da section texto (está dentro da section contato).*/
     section.texto > p > img#logo {
         width: 2vw;
     }
