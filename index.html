@@ -6,27 +6,31 @@
     <title>PetSitter</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=menu" />
-    
+    <!--Links para a folha de estilo e para a fonte utilizada no projeto-->
 </head>
+<!--Função "mudouTamanho()" para realizar as trocas de configurações do menu de opções.-->
 <body onresize="mudouTamanho()">
     <header>
         <h1>PetSitter <br> Tia Camila</h1>
-        
     </header>
+    <!--Configuração do menu.-->
     <nav>
+        <!--Função "clickMenu()" utilizada para abrir e fechar o menu hamburguer.-->
         <span id="burger" class="material-symbols-outlined" onclick="clickMenu()">menu</span>
         <menu id="itens">
             <ul>
-                <li><a href="#" id="home">Home</a></li>
-                <li><a href="#">O que é PetSitter?</a></li>
-                <li><a href="#">Sobre mim</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Avaliações</a></li>
-                <li><a href="#" id="contateme">Contate-me</a></li>
+                <li><a href="#apresentacao" id="home" class="link">Home</a></li>
+                <li><a href="#oqe" class="link">O que é PetSitter?</a></li>
+                <li><a href="#sobre" class="link">Sobre mim</a></li>
+                <li><a href="#servicos" class="link">Serviços</a></li>
+                <li><a href="#avaliacoes" class="link">Avaliações</a></li>
+                <li><a href="#orcamento" class="link">Orçamento</a></li>
+                <li><a href="#contato" id="contateme" class="link">Contate-me</a></li>
             </ul>
         </menu>
     </nav>
     <main>
+        <!--Sessão de apresentação. (1)-->
         <section class="sessao" id="apresentacao">
             <div class="sessao" id="apresentacao"><img src="imagens/fotos/cao-gato.png" alt="cachorro e gato" id="div"></div>
             <section class="texto" id="apresentacao">
@@ -35,6 +39,7 @@
                 <p>E só me chamar que cuido dele(a) com todo carinho para que, você tutor, possa curtir a viagem sem se preocupar.</p>
             </section>
         </section>
+        <!--Sessão de O que é PetSitter?.-->
         <section class="sessao" id="oqe">
             <div class="sessao" id="oqe"><img src="imagens/fotos/cao-gato2.png" alt="cachorro e gato" id="div"></div>
             <section class="texto" id="oqe">
@@ -51,6 +56,7 @@
                 <p>Entre outras coisas que forem necessárias para sua saúde e bem-estar.</p>
             </section>
         </section>
+        <!--Sessão Sobre mim.-->
         <section class="sessao" id="sobre">
             <div class="sessao" id="sobre"><img src="imagens/fotos/eu.png" alt="Eu (Camila) e minhas 3 cachorras" id="div"></div>
             <section class="texto" id="sobre">
@@ -63,6 +69,7 @@
                 <p>Por isso, convido você tutor a conhecer melhor os meus serviços, tenho certeza de que não irei decepcioná-lo.</p>
             </section>
         </section>
+        <!--Sessão de serviços.-->
         <section class="sessao" id="servicos">
             <div class="sessao" id="servicos"><img src="imagens/fotos/cachorros-brincando.png" alt="cachorros brincando" id="div"></div>
             <section class="texto" id="servicos">
@@ -73,11 +80,13 @@
                 <p>Por fim, você deixará a chave de seu lar comigo, e todos os dias irei te mandar mensagens de como o Pet está, como foi a visita, junto de fotos e vídeos para que você possa matar a saudade enquanto estiver longe.</p>
             </section>
         </section>
+        <!--Sessão de avaliações.-->
         <section class="sessao" id="avaliacoes">
             <section class="texto" id="avaliacoesDiv">
                 <h1>Avaliações</h1>
                 <p>Veja o que dizem as pessoas que já confiam no meu trabalho:</p>
             </section>
+            <!--Carrossel de avaliações.-->
             <div class="carrossel-container" id="avaliacoes">
                 <button id="prev" class="seta">&#10094;</button>
                 <div class="carrossel">
@@ -93,6 +102,7 @@
                 <button id="next" class="seta">&#10095;</button>
             </div>
         </section>
+        <!--Sessão de orçamento.-->
         <section class="sessao" id="orcamento">
             <div class="sessao" id="orcamento"><img src="imagens/fotos/cao-gato3.png" alt="cachorro e gato" id="div"></div>
             <section class="texto" id="texto-orcamento">
@@ -101,6 +111,7 @@
                 <p>Os valor da diária é de R$ 60,00, quando for somente <strong>UM Pet na residência</strong>. Quando houver mais de UM, será acrescentado o valor de R$ 10,00 na diária por Pet. Exemplo: 1 Pet = R$ 60,00, 2 Pets = R$ 70,00, 3 Pets = R$ 80,00, e por aí vai.</p>
                 <p>O meu deslocamento até a sua residência é de R$ 10,00 por vez que eu irei ir até lá, ou seja, o valor final do deslocamento vai depender de quantas visitas por dia irei fazer ao seu Pet.</p>
             </section>
+            <!--Parte de exemplos e calculadora.-->
             <aside id="aparte">
                 <h2>Exemplos de Orçamentos para 3 dias de visitas</h2>
                 <section id="exemplos">
@@ -108,17 +119,20 @@
                     <p>3 diárias <br>+<br>2 visitas por dia <br>+<br>1 Pet <br>=<br>R$ 240,00</p>
                     <p>3 diárias <br>+<br>2 visitas por dia <br>+<br>2 Pets <br>=<br>R$ 270,00</p>
                 </section>
+                <!--Calculadora.-->
                 <section id="faca">
                     <h4><strong>Faça seu orçamento:</strong></h4>
                     <p><strong>Serão quantos dias de visita:</strong> <input type="number" name="dias" id="dias" placeholder="exemplo 1"></p>
                     <p><strong>Quantos Pets estará na residência:</strong> <input type="number" name="pets" id="pets" placeholder="exemplo 3"></p>
                     <p><strong>Quantas visitas ao dia serão necessárias:</strong> <input type="number" name="visitas" id="visitas" placeholder="exemplo 2"></p>
+                    <!--Função "calcular()" faz o cálculo do orçamento.-->
                     <input type="submit" id="botao" value="Calcular" onclick="calcular()">
                     <p><strong>Total =</strong></p>
                     <p id="resultado">R$ 0,00</p>
                 </section>
             </aside>
         </section>
+        <!--Sessão de contato.-->
         <section class="sessao" id="contato">
             <section class="texto">
                 <h1>Contate-me</h1>
@@ -127,50 +141,82 @@
             </section>
             <div class="sessao" id="contato"><img src="imagens/fotos/cao-gato4.png" alt="cachorro e gato" id="div"></div>
         </section>
-        <section></section>
     </main>
     <footer>
         <p>Site criado por <a href="#">Camila Senra</a>.</p>
     </footer>
 </body>
 <script>
+    //Função de cliclar no menu hamburguer.
     function clickMenu(){
+        //Pegar o menu hamburguer para conseguirmos interagir.
         var span = document.getElementById('burger')
+        //Se o menu de itens estiver com o display block (menu de itens aparente) e eu clicar, a configuração dele vai para display none (esconde as opções) e fica com as bordas em 50% formando um círculo.
         if (itens.style.display == 'block'){
             itens.style.display = 'none'
             span.style.borderRadius = '50%'
+            //Senão, ele abre o menu de itens (display block) e muda a configuração do border radius.
         } else {
             itens.style.display = 'block'
             span.style.borderRadius = '10px 10px 0px 0px'
         }
     }
 
+    //Função que confere o tamanho da tela do dispositivo.
     function mudouTamanho(){
-        if (window.innerWidth >= 768){
+        //Se a tela for maior ou igual a 768px o menu de itens irá receber a configuração display block fazendo com que as opções fiquem aparentes.
+        if (window.innerWidth >= 821){
             itens.style.display = 'block'
+            //Senão, recebe o display none.
         } else {
             itens.style.display = 'none'
         }
     }
 
+    //Função para calcular o orçamento.
     function calcular(){
+        //Cria as variáveis a partir do que foi digitado nos inputs.
         var inputdias = document.getElementById("dias")
         var intputpets = document.getElementById("pets")
         var inputvisitas = document.getElementById("visitas")
+        //Cria a variável cálculo onde será guardado o resultado do cálculo.
         var calculo
+        //O "Number(inputex.value)" é utilizado para garantir que os valores digitados são números.
         var dias = Number(inputdias.value)
         var pets = Number(intputpets.value)
         var visitas = Number(inputvisitas.value)
+        //A conta que será feita.
         calculo = dias*((50 + pets*10) + 10*visitas)
+        //O parágrafo que será inserido contendo o resultado.
         resultado.innerHTML = "R$ " + calculo + ",00"
     }
 
+    //Scroll suave para links de navegação
+    const navLinks = document.querySelectorAll('#itens ul a.link'); //Criação da constante navLinks e o uso do querySelectorAll para buscar todos os links (<a>) que têm a classe link, que estão dentro de uma lista (<ul>), que por sua vez está dentro de um container com o ID #itens. Ele guarda todos esses links em uma lista.
+    navLinks.forEach(link => { //O forEach passa por cada um deles, um por um.
+    link.addEventListener('click', function(e) { //Para cada um dos links, se adiciona um "ouvinte de evento" (addEventListener). Ele fica esperando o usuário clicar ('click'). Quando o clique acontece, dispara a função passando um objeto "e" (que representa o próprio evento de clique).
+        e.preventDefault(); //e.preventDefault() cancela o comportamento padrão, deixa que eu configure o movimento".
+        const target = document.querySelector(this.getAttribute('href')); //Cria uma constante chamada target (alvo). "this.getAttribute('href')"" pega o texto que está escrito no atributo href do link que acabou de ser clicado (por exemplo, "#contato"). O document.querySelector(...) usa esse texto para procurar e selecionar o elemento/seção real da página que tem aquele ID.
+        if (target) { //Verifica se achou a sessão.
+        const navHeight = document.querySelector('nav').offsetHeight; //Cria uma constante chamada navHeight (altura do menu de navegação). O document.querySelector('nav') acha a sua barra de menu lá no topo. O .offsetHeight mede, em pixels, a altura total desse menu (incluindo bordas e paddings).
+        const targetPosition = target.offsetTop - navHeight - 10; //Faz o cálculo matemático de onde a tela deve parar: -> "target.offsetTop": Descobre a distância (em pixels) do topo da página até o início da seção alvo. -> "- navHeight": Subtrai a altura do menu (para que a seção pare abaixo do menu fixo, e não atrás dele). -> "- 10": Subtrai mais 10 pixels extras para servir como uma "folga" ou respiro visual, impedindo que o texto cole na linha do menu.
+        //O window.scrollTo rola a janela do navegador até uma coordenada específica. Passamos um objeto de configuração para ele: -> top: "targetPosition": Diz para rolar até a altura exata que calculamos na linha anterior. -> behavior: 'smooth': Diz ao navegador para fazer a rolagem de forma suave/macia (smooth) em vez de dar aquele pulo brusco.
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+        }
+    });
+    });
+
+//A partir daqui é a configuração do Carrossel de Avaliações.
+
+    //Seleciona as variáveis que temos que utilizar, os botões de seguinte e anterior, e as caixas contendo as avaliações.
     const caixas = document.querySelectorAll('.caixa');
     const btnPrev = document.getElementById('prev');
     const btnNext = document.getElementById('next');
 
-    let indexAtivo = 0;
-
+    //Criação de avaliações falsas para uso do projeto de estudo, mas se fosse um projeto real, iriamos pegar as avaliações do google.
     const avaliacoesFicticias = [
     {
         nome: "Ana Silva",
@@ -198,78 +244,88 @@
     }
     ];
 
+    //Função de criar a linha contendo as estrelas com base nas notas do usuário. 
     function criarEstrelas(nota) {
         return '★'.repeat(nota) + '☆'.repeat(5 - nota);
     }
 
-    // 3. Limpar o conteúdo estático antigo e injetar os novos cards
+    //Limpar o conteúdo estático antigo e injetar os novos cards
     palco.innerHTML = ''; // Apaga as divs de teste (Div 1, Div 2, etc.)
 
+    //O método "forEach()" vai varrer o array avaliacoesFicticias e criar os cards de avaliações. Ele irá pegar o item do array e dar um valor de index.
     avaliacoesFicticias.forEach((item, index) => {
+    //Vai criar a div (card).
     const card = document.createElement('div');
+    //E dará a classe "caixa" para ela.
     card.classList.add('caixa');
   
-    // A primeira avaliação (index 0) precisa começar com a classe 'ativa'
+    //A primeira avaliação (index 0) precisa começar com a classe 'ativa'.
     if (index === 0) {
         card.classList.add('ativa');
     }
 
-    // Estrutura interna do card de avaliação
+    //A configuração de será a estrutura interna do card de avaliação.
     card.innerHTML = `
         <div class="topo-card">
+        <!--Pegará a foto.-->
         <img src="${item.foto}" alt="${item.nome}" style="width: 50px; height: 50px; border-radius: 50%;">
         <div>
+            <!--Pegará o nome.-->
             <h4 id="nome">${item.nome}</h4>
+            <!--Chamará a função criar estrelas e pegará a linha de estrelas criadas com base na nota.-->
             <div id="estrela">${criarEstrelas(item.nota)}</div>
+            <!--Pegará o comentário.-->
             <p id="comentario">"${item.comentario}"</p>
         </div>
         </div>
-    
     `;
 
+    //Criação do "palco" onde irá ficar todas as caixas de avaliações.
     palco.appendChild(card);
     });
 
+    //Cria o contador e pega as caixas de avaliações.
     let count = 0;
     const cards = document.querySelectorAll('.caixa');
 
-    function selectCarousel() {
-        // 1. Limpa as classes de posicionamento de todas as caixas
+    //Inicializa chamando a função para o primeiro card começar correto chamando a função.
+    selectCarrossel();
+
+    function selectCarrossel() {
+        //Limpa as classes de posicionamento de todas as caixas.
         cards.forEach(caixa => {
             caixa.classList.remove('ativa', 'anterior', 'proxima');
         });
 
-        // 2. Calcula matematicamente quem é o vizinho da esquerda e da direita
-        // O uso do % (módulo) garante que o carrossel seja infinito para os dois lados
-        const indiceAnterior = (count - 1 + cards.length) % cards.length;
-        const indiceProximo = (count + 1) % cards.length;
+        //Calcula matematicamente quem é o vizinho da esquerda e da direita.
+        //O uso do % (módulo) garante que o carrossel seja infinito para os dois lados.
+        const indiceAnterior = (count - 1 + cards.length) % cards.length;//O ".length irá contar quantos cards eu tenho." Se o cartão atual (count) for o primeiro (0), a conta seria 0 - 1 = -1 (não existe índice negativo!). Para resolver isso, somamos o total de cartões (+ cards.length) e aplicamos o módulo (% cards.length). Isso garante que, se você estiver no primeiro cartão, o "anterior" seja o último da lista, criando a ilusão de infinito.
+        const indiceProximo = (count + 1) % cards.length; //Se você estiver no último cartão e somar + 1, o módulo % faz o número voltar a ser 0 (o primeiro cartão).
 
-        // 3. Aplica as classes baseadas no seu 'count' atual
+        //Aplica as classes baseadas no seu 'count' atual
         cards[count].classList.add('ativa');
         cards[indiceAnterior].classList.add('anterior');
         cards[indiceProximo].classList.add('proxima');
     }
 
-    // Sua lógica de clique idêntica, apenas chamando a nova função de classes
+    //Lógica do botão de seguinte.
     document.getElementById('next').addEventListener('click', () => {
-        if (count < cards.length - 1) {
-            count++;
+        if (count < cards.length - 1) { //Pergunta se o cartão atual não é o último da lista. (Se você tem 5 cartões, o último índice é 4, por isso o - 1).
+            count++; //Se não for o último, avança somando +1 à variável count.
         } else {
-            count = 0;
+            count = 0; //Se já for o último cartão, o count zera para voltar ao início.
         }
-        selectCarousel();
+        selectCarrossel(); //Chama a função para atualizar visualmente a tela com o novo valor de count.
     });
 
+    //Lógica do batão de anterior.
     document.getElementById('prev').addEventListener('click', () => {
-        if (count > 0) {
-         count--;
+        if (count > 0) { //Pergunta se o cartão atual não é o primeiro.
+         count--; //Se não for o primeiro, diminui -1 da variável count.
         } else {
-            count = cards.length - 1;
+            count = cards.length - 1; //Se já estiver no primeiro cartão (0) e clicar em voltar, o count recebe o índice do último cartão da lista.
         }
-        selectCarousel();
+        selectCarrossel(); //Chama a função para atualizar visualmente a tela com o novo valor de count.
     });
-
-    // Inicializa chamando a função para o primeiro card começar correto
-    selectCarousel();
-    </script>
-    </html>
+</script>
+</html>

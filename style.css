@@ -13,7 +13,6 @@
     --cabecalho: #051711;
 }
 
-
 /*Configurações raiz.*/
 * {
     font-family: "LXGW Marker Gothic", Arial, Helvetica, sans-serif;
@@ -24,6 +23,10 @@
 /*Configuração principal é para Mobile First.*/
 
 /*Configurações do header.*/
+body {
+    width: 97vw;
+}
+
 header {
     width: 97vw;/*Não é 100vw para não ter rolagem lateral.*/
     background-color: var(--cabecalho);
@@ -72,6 +75,7 @@ menu {
     margin-right: 10px;
     border-radius: 10px;
     border: 2px solid var(--cabecalho);
+    z-index: 9999;
 }
 
 menu > ul {
@@ -478,14 +482,14 @@ footer > p > a:hover {
     color: var(--claro);
 }
 
-/*Configuração para telas médias, minímo de 768 pixels, exemplo tablets.*/
-@media screen and (min-width: 768px) {
+/*Configuração para telas médias, minímo de 821 pixels, exemplo tablets.*/
+@media screen and (min-width: 821px) {
     body {
-        width: 98vw;
+        width: 98.1vw;
     }
     
     header {
-        width: 98vw;
+        width: 98.1vw;
         display: inline-block;
         border-radius: 0px;
     }
@@ -496,7 +500,7 @@ footer > p > a:hover {
 
     nav {
         background-color: var(--cabecalho);
-        width: 98vw;
+        width: 98.1vw;
         position: sticky;
         top: 0; /*Fixar o menu no topo.*/
         z-index: 1000;
@@ -571,6 +575,10 @@ footer > p > a:hover {
 /*Configuração para telas grandes, minímo de 1024 pixels, exemplo desktops.*/
 @media screen and (min-width: 1024px) {
 
+    body, header, nav {
+        width: 98.5vw;
+    }
+
     /*Configuração geral das sections.*/
     section.sessao {
         display: grid; /*Disposição dos elementos em grid.*/
@@ -630,8 +638,8 @@ footer > p > a:hover {
 
     /*Ajuste do tamanho dos botões (está dentro da div carrossel-container).*/
     .seta {
-        width: 5vw;
-        height: 5vw; 
+        width: 2.5vw;
+        height: 2.5vw; 
     }
 
     /*Ajuste do posicionamento dos botões (está dentro da div carrossel-container).*/
